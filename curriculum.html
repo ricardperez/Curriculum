@@ -1,0 +1,198 @@
+<html>
+	<head>
+		<style type="text/css">
+			body {
+				background-color: white;
+			}
+
+			.JobRole:before {
+				content: "Role:";
+			}
+
+			.JobDescription:before {
+				content: "Description:";
+			}
+
+			.JobProjects .JobProjectTitle {
+				color: LightSlateGrey;
+			}
+
+			.WorkingCompany {
+				display:list-item;
+				margin-left: 1.3em;
+  				list-style-type: circle;
+			}
+
+			.CompanyDetails {
+				margin-left: 1.3em;
+			}
+
+			.JobProjects:before {
+				content: "Projects:";
+			}
+			.JobProjects div {
+				display:list-item;
+				margin-left: 1.3em;
+  				list-style-type: circle;
+			}
+
+			.JobTechnologies:before {
+				content: "Used technologies:";
+			}
+
+		</style>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$(".toggleVisibilityOnClick").click(function(e){
+					if (e.target == this)
+					{
+						if ($(this).children().is(":visible"))
+						{
+							$(this).children().hide();
+						}
+						else
+						{
+							$(this).children().show();
+						}
+					}
+				});
+			});
+		</script>
+
+	</head>
+	<body>
+		<div class="Header1">
+			<label class="Bold">Name:</label>
+			<label class="Normal">Ricard Perez del Campo</label>
+			<br/>
+			<label class="Bold">Birthday:</label>
+			<label class="Normal">Barcelona, 1989/06/19</label>
+			<br/>
+			<label class="Bold">Email:</label>
+			<label class="Normal">ricardperez@gmail.com</label>
+			<br/>
+			<label class="Bold">Skype</label>
+			<label class="Normal">ricardperezdelcampo</label>
+			<br/>
+			<label class="Bold">Blog:</label>
+			<a href="http://www.ricardperez.es/blog" target="_blank" class="Normal Link">http://www.ricardperez.es/blog</a>
+		</div>
+
+		<br class="Separator1"/>
+
+		<div class="Body">
+			<div class="BodyDiv">
+				<div class="BodyTitle">
+					Academic
+				</div>
+				<br class="TitleTextSeparator"/>
+				<div class="BodyText">
+					Technical Engineering in Computer Science (2007-2011)
+					<br class="breakline"/>
+					University of Girona
+					<br class="breakline"/>
+					Final project: Simulation and representation of passive lights [using Grasshopper - Rhino3d]
+				</div>
+			</div>
+			<div class="BodyDiv">
+				<div class="BodyTitle">
+					Working Experience
+				</div>
+				
+				<div class="WorkingCompany toggleVisibilityOnClick">
+					Outplay
+					<div class="CompanyDetails">
+						<div class="JobRole">
+							Programmer and lead programmer
+						</div>
+						<div class="JobDescription">
+							Outplay Entertainment is a mobile games company focused on casual games but that also makes some midcore games. In this company I have been involved in three great projects
+						</div>
+						<div class="JobProjects">
+							<div>
+								<p>
+									<label class="JobProjectTitle">Alien Creeps TD</label> I have been in the project during all its process (it was started 2 weeks before I came to the company). This is a Cocos2d-x based game. We were 2 programmers during most of its development, and almost at the end a third one joined us. The team also had 2-3 designers, 2-4 artists and 1-2 producers. This has been the first big game I have been involved, and I had the opportunity to learn a lot and from very (very) talented people, which has allowed me to experience a very fast learning curve.
+								</p>
+								<p>
+									Since it has been deployed to both iOS and Android, with this project I have finally been given the chance of learning how to structure multiplatform games.
+								</p>
+								<p>
+									In this project I also made and maintained most of the tools the designers used for creating levels and defining enemies and towers. Those tools were created using Qt Creator.
+								</p>
+							</div>
+							<div>
+								<p>
+									<label class="JobProjectTitle">Bubble Genius</label> In my second project in the company I was the lead programmer. The engineer team was compounded by me and another person for 5 months and a third programmer joined us afterwards. This was a bubble popper game developed using cocos2d-x as well. Here I was able to strengthen my skills applying the correct patterns to the project, as I literally started to code it.
+								</p>
+								<p>
+									Apart from the game side, I also was responsible of developing the tools for the designers to create the levels. This was done using Qt Creator again.
+								</p>
+							</div>
+							<div>
+								<p>
+									<label class="JobProjectTitle">Monsters &amp; Magic</label> This was the third and last project I was involved in the company. The project had already been started and I was moved in during the last month to be able to speed up the development of one of the core systems of the game. The engineer team was compound only by another person and me at that time.
+								</p>
+							</div>
+						</div>
+						<div class="JobTechnologies">
+							<ul>
+								<li> Xcode / Visual Studio / Eclipse / Qt Creator </li>
+								<li> Cocos2d-x </li>
+								<li> C++ </li>
+								<li> Java </li>
+								<li> Python </li>
+								<li> Unix and Windows batch scripts </li>
+								<li> Multiple adverts and analytics SDKs </li>
+								<li> Facebook SDK </li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="WorkingCompany toggleVisibilityOnClick">
+					CogniFit
+					<div class="CompanyDetails">
+						<div class="JobRole">
+							iOS developer
+						</div>
+						<div class="JobDescription">
+							<p>
+								At CogniFit I had the opportunity to manage 2 big projects: CogniFit Brain Fitness and CogniFit MoodCraft. My role here was to create the software analysis and implement it. The Brain Fitness app was a port from the website, so the idea was clear, but the design changed several times during the development process. In an iOS team created only by me and another person, I developed a system to launch the games created with the Cocos2d framework and to save several results to the server using web services. I programmed most of those games, and a lot of the other functionalities of the application.
+							</p>
+							<p>
+								The MoodCraft app presented a concept that did not exist on the website, so all the work began on the iOS systems. It is a platform to share your moods with other people. It has a nice editor to create moods (emoticons) and several options to be able to make it social and viral. The programming part of this app was done only by me and took a little bit more than 3 months to launch the first version.
+							</p>
+						</div>
+						<div class="JobProjects">
+							<div>
+								<p>
+									<label class="JobProjectTitle">CogniFit Brain Fitness</label>
+								</p>
+							</div>
+							<div>
+								<p>
+									<label class="JobProjectTitle">CogniFit MoodCraft</label>
+								</p>
+							</div>
+						</div>
+						<div class="JobTechnologies">
+							<ul>
+								<li> Xcode </li>
+								<li> Cocos2d (iOS) </li>
+								<li> Quartz Core and Core Animation </li>
+								<li> Core Data </li>
+								<li> Concurrency with GCD </li>
+								<li> Facebook and Twitter SDKs </li>
+								<li> Google Analytics and Quantcast </li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</body>
+
+<?html>
