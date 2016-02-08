@@ -3,14 +3,54 @@
 		<style type="text/css">
 			body {
 				background-color: white;
+				font-family: "sans-serif";
+				font-size: 18px;
+				font-weight: normal;
+				line-height: 25px;
 			}
 
-			.JobRole:before {
-				content: "Role:";
+			.bold {
+				font-weight: bold;
 			}
 
-			.JobDescription:before {
-				content: "Description:";
+			.Header {
+				-webkit-column-count: 1;
+				-moz-column-count: 2;
+				-ms-column-count: 2;
+				column-count: 2;
+    			margin-bottom: 50px;
+    			/*display: flex;*/
+			}
+
+			.ProfileImage img {
+				height: 150px;
+				width: auto;
+			}
+
+			.ProfileImage
+			{
+				float: left;
+				margin-right: 20px;
+			}
+
+			.ProfileData
+			{
+				height: 150px;
+				padding: 0px 0px;
+				line-height: 170%;
+			}
+
+			.ProfileDiv
+			{
+				width: 500px;
+			}
+
+			.AcademicDiv
+			{
+				padding: 10px;
+				line-height: 170%;
+				width: 680px;
+				margin-bottom: 25px;
 			}
 
 			.JobProjects .JobProjectTitle {
@@ -18,26 +58,30 @@
 			}
 
 			.WorkingCompany {
-				display:list-item;
 				margin-left: 1.3em;
-  				list-style-type: circle;
+			}
+
+			.foldCompanyDetailsImage {
+				width: 32px;
+				height: 32px;
+				margin: 10px;
+    			float: left;
+    			margin-top: 10px;
+			}
+
+			.CompanyTitle {
+				font-size: 20;
+				font-weight: bold;
 			}
 
 			.CompanyDetails {
 				margin-left: 1.3em;
 			}
 
-			.JobProjects:before {
-				content: "Projects:";
-			}
 			.JobProjects div {
 				display:list-item;
 				margin-left: 1.3em;
-  				list-style-type: circle;
-			}
-
-			.JobTechnologies:before {
-				content: "Used technologies:";
+  				list-style-type: square;
 			}
 
 		</style>
@@ -45,75 +89,103 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script>
 			$(document).ready(function(){
-				$(".toggleVisibilityOnClick").click(function(e){
+				$(".toggleContentVisibility").click(function(e){
 					if (e.target == this)
 					{
-						if ($(this).children().is(":visible"))
+						var content = $(this).parent().find('.contentToToggleVisibility');
+						var title = $(this).next();
+						if (content.is(":visible"))
 						{
-							$(this).children().hide();
+							$(this).css({
+								'-webkit-transform': 'rotate(270deg)',
+								'-moz-transform': 'rotate(270deg)',
+								'-ms-transform': 'rotate(270deg)',
+								'-transform': 'rotate(270deg)',
+							});
+							title.css({
+								'margin-bottom': '30px'
+							});
+							content.hide();
 						}
 						else
 						{
-							$(this).children().show();
+							$(this).css({
+								'-webkit-transform': 'rotate(0deg)',
+								'-moz-transform': 'rotate(0deg)',
+								'-ms-transform': 'rotate(0deg)',
+								'-transform': 'rotate(0deg)',
+							});
+							title.css({
+								'margin-bottom': '0px'
+							});
+							content.show();
 						}
 					}
+				});
+				$('img').bind('contextmenu', function(e) {
+					return false;
 				});
 			});
 		</script>
 
 	</head>
 	<body>
-		<div class="Header1">
-			<label class="Bold">Name:</label>
-			<label class="Normal">Ricard Perez del Campo</label>
-			<br/>
-			<label class="Bold">Birthday:</label>
-			<label class="Normal">Barcelona, 1989/06/19</label>
-			<br/>
-			<label class="Bold">Email:</label>
-			<label class="Normal">ricardperez@gmail.com</label>
-			<br/>
-			<label class="Bold">Skype</label>
-			<label class="Normal">ricardperezdelcampo</label>
-			<br/>
-			<label class="Bold">Blog:</label>
-			<a href="http://www.ricardperez.es/blog" target="_blank" class="Normal Link">http://www.ricardperez.es/blog</a>
-		</div>
-
-		<br class="Separator1"/>
-
-		<div class="Body">
-			<div class="BodyDiv">
-				<div class="BodyTitle">
-					Academic
+		<div class="Header">
+			<div class='ProfileDiv'>
+				<div class="ProfileImage">
+					<img src="resources/profile_picture.jpg" title="Ricard Perez" />
 				</div>
-				<br class="TitleTextSeparator"/>
+				<div class="ProfileData">
+					<label class="Bold">Name:</label>
+					<label class="Normal">Ricard Perez del Campo</label>
+					<br/>
+					<label class="Bold">Birthday:</label>
+					<label class="Normal">Barcelona, 1989/06/19</label>
+					<br/>
+					<label class="Bold">Email:</label>
+					<label class="Normal">ricardperez@gmail.com</label>
+					<br/>
+					<label class="Bold">Skype</label>
+					<label class="Normal">ricardperezdelcampo</label>
+					<br/>
+					<label class="Bold">Blog:</label>
+					<a href="http://www.ricardperez.es/blog" target="_blank" class="Normal Link">http://www.ricardperez.es/blog</a>
+				</div>
+			</div>
+			<div class="BodyDiv AcademicDiv">
 				<div class="BodyText">
 					Technical Engineering in Computer Science (2007-2011)
 					<br class="breakline"/>
 					University of Girona
 					<br class="breakline"/>
-					Final project: Simulation and representation of passive lights [using Grasshopper - Rhino3d]
+					<label class="bold">Final project:</label> Simulation and representation of passive lights [using Grasshopper - Rhino3d]
 				</div>
 			</div>
+		</div>
+
+		<div class="Body">
 			<div class="BodyDiv">
-				<div class="BodyTitle">
-					Working Experience
-				</div>
-				
-				<div class="WorkingCompany toggleVisibilityOnClick">
-					Outplay
-					<div class="CompanyDetails">
+				<div class="WorkingCompany">
+					<img class="toggleContentVisibility foldCompanyDetailsImage" title="Outplay Entertainment" src="resources/text_fold.png" />
+					<div class="CompanyTitle">
+							Outplay Entertainment
+					</div>
+					<div class="CompanyDetails contentToToggleVisibility">
+						<div class="JobDates">
+							Dundee, UK (07/2013 - 08/2015)
+						</div>
 						<div class="JobRole">
-							Programmer and lead programmer
+							Game Engineer
 						</div>
 						<div class="JobDescription">
-							Outplay Entertainment is a mobile games company focused on casual games but that also makes some midcore games. In this company I have been involved in three great projects
+							<p>
+								Outplay Entertainment is a mobile games company focused on casual games but that also makes some midcore games. In this company I have been involved in three great projects
+							</p>
 						</div>
 						<div class="JobProjects">
 							<div>
 								<p>
-									<label class="JobProjectTitle">Alien Creeps TD</label> I have been in the project during all its process (it was started 2 weeks before I came to the company). This is a Cocos2d-x based game. We were 2 programmers during most of its development, and almost at the end a third one joined us. The team also had 2-3 designers, 2-4 artists and 1-2 producers. This has been the first big game I have been involved, and I had the opportunity to learn a lot and from very (very) talented people, which has allowed me to experience a very fast learning curve.
+									<a class="JobProjectTitle" href="http://outplay.com/games/alien-creeps" target="_blank">Alien Creeps TD</a> I have been in the project during all its process (it was started 2 weeks before I came to the company). This is a Cocos2d-x based game. We were 2 programmers during most of its development, and almost at the end a third one joined us. The team also had 2-3 designers, 2-4 artists and 1-2 producers. This has been the first big game I have been involved, and I had the opportunity to learn a lot and from very (very) talented people, which has allowed me to experience a very fast learning curve.
 								</p>
 								<p>
 									Since it has been deployed to both iOS and Android, with this project I have finally been given the chance of learning how to structure multiplatform games.
@@ -124,7 +196,7 @@
 							</div>
 							<div>
 								<p>
-									<label class="JobProjectTitle">Bubble Genius</label> In my second project in the company I was the lead programmer. The engineer team was compounded by me and another person for 5 months and a third programmer joined us afterwards. This was a bubble popper game developed using cocos2d-x as well. Here I was able to strengthen my skills applying the correct patterns to the project, as I literally started to code it.
+									<a class="JobProjectTitle" href="https://outplay.com/games/bubble-genius" target="_blank">Bubble Genius</a> In my second project in the company I was the lead programmer. The engineer team was compounded by me and another person for 5 months and a third programmer joined us afterwards. This was a bubble popper game developed using cocos2d-x as well. Here I was able to strengthen my skills applying the correct patterns to the project, as I literally started to code it.
 								</p>
 								<p>
 									Apart from the game side, I also was responsible of developing the tools for the designers to create the levels. This was done using Qt Creator again.
@@ -151,9 +223,15 @@
 					</div>
 				</div>
 
-				<div class="WorkingCompany toggleVisibilityOnClick">
-					CogniFit
-					<div class="CompanyDetails">
+				<div class="WorkingCompany">
+					<img class="toggleContentVisibility foldCompanyDetailsImage" title="CogniFit" src="resources/text_fold.png" />
+					<div class="CompanyTitle">
+						CogniFit
+					</div>
+					<div class="CompanyDetails contentToToggleVisibility">
+						<div class="JobDates">
+							Madrid, Spain (02/2012 - 03/2013)
+						</div>
 						<div class="JobRole">
 							iOS developer
 						</div>
@@ -168,12 +246,12 @@
 						<div class="JobProjects">
 							<div>
 								<p>
-									<label class="JobProjectTitle">CogniFit Brain Fitness</label>
+									<a class="JobProjectTitle" href="https://itunes.apple.com/app/cognifit-brain-fitness/id528285610?mt=8" target="_blank"> CogniFit Brain Fitness </a>
 								</p>
 							</div>
 							<div>
 								<p>
-									<label class="JobProjectTitle">CogniFit MoodCraft</label>
+									<a class="JobProjectTitle" href="https://itunes.apple.com/app/cognifit-moodcraft/id571018132?mt=8" target="_blank">CogniFit MoodCraft</a>
 								</p>
 							</div>
 						</div>
@@ -190,6 +268,127 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="WorkingCompany">
+					<img class="toggleContentVisibility foldCompanyDetailsImage" title="Porpra Augmented" src="resources/text_fold.png" />
+					<div class="CompanyTitle">
+						Porpra Augmented
+					</div>
+					<div class="CompanyDetails contentToToggleVisibility">
+						<div class="JobDates">
+							Girona, Spain (07/2010 - 10/2010)
+						</div>
+						<div class="JobRole">
+							iOS Developer
+						</div>
+						<div class="JobDescription">
+							<p>
+								At Porpra Augmented I worked as the only iOS developer running a project that already existed on the Android systems. With the help of a designer and a DB ninja, I had to design the application core that then was used by multiple apps. The main one (and the first) was called Watch! and was about finding places where you could watch a sport event (bars, cafes, restaurants...). Then we deployed this to multiple applications, being most of them official football clubs. We did the official F.C. Barcelona: FCB Watch!.
+							</p>
+							<p>
+								Here, I also had to develop several independent short projects, using given APIs or deciding the best approach to create them.
+							</p>
+						</div>
+						<div class="JobProjects">
+							<div class="JobProjectTitle"> Watch Around </div>
+							<div class="JobProjectTitle"> FCB Watch </div>
+							<div class="JobProjectTitle"> Ilevenz </div>
+						</div>
+						<div class="JobTechnologies">
+							<ul>
+								<li> Cocoa environment </li>
+								<li> Push notifications </li>
+								<li> Facebook / Twitter / Foursquare APIs </li>
+								<li> IAPs </li>
+								<li> Web services integration </li>
+								<li> Web services development in PHP </li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="WorkingCompany">
+					<img class="toggleContentVisibility foldCompanyDetailsImage" title="In Store Solutions" src="resources/text_fold.png" />
+					<div class="CompanyTitle">
+						In Store Solutions
+					</div>
+					<div class="CompanyDetails contentToToggleVisibility">
+						<div class="JobDates">
+							Girona, Spain (07/2010 - 10/2010)
+						</div>
+						<div class="JobRole">
+							Assistant Scholar
+						</div>
+						<div class="JobDescription">
+							<p>
+								My position at this company was as a scholar assistant. Here I could work in a team of 8 developers and several designers were my mission was to develop some simple features for custom Magento (eCommerce) modules. I also learned to create Selenium Tests in PHP in order to check some website features automatically.
+							</p>
+						</div>
+						<div class="JobTechnologies">
+							<ul>
+								<li> Magento (PHP) </li>
+								<li> MySQL procedures and functions </li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="WorkingCompany">
+					<img class="toggleContentVisibility foldCompanyDetailsImage" title="Amidasoft" src="resources/text_fold.png" />
+					<div class="CompanyTitle">
+						Amidasoft
+					</div>
+					<div class="CompanyDetails contentToToggleVisibility">
+						<div class="JobDates">
+							Girona, Spain (07/2008 - 06/2010)
+						</div>
+						<div class="JobRole">
+							Assistant Scholar
+						</div>
+						<div class="JobDescription">
+							I worked at Amidasoft while I was at my second year of university. Here I could help in some medium­sized projects. This let me see how real projects were designed and managed.
+						</div>
+						<div class="JobTechnologies">
+							<ul>
+								<li> Java/J2EE </li>
+								<li> PHP </li>
+								<li> MySQL </li>
+								<li> Linux </li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- <div class="WorkingCompany">
+					<img class="toggleContentVisibility foldCompanyDetailsImage" title="company_name" src="resources/text_fold.png" />
+					<div class="CompanyTitle">
+						company_name
+					</div>
+					<div class="CompanyDetails contentToToggleVisibility">
+						<div class="JobDates">
+						</div>
+						<div class="JobRole">
+							job_role
+						</div>
+						<div class="JobDescription">
+							job_description
+						</div>
+						<div class="JobProjects">
+							<div>
+								<p>
+									<label class="JobProjectTitle">job_project_1</label>
+								</p>
+							</div>
+						</div>
+						<div class="JobTechnologies">
+							<ul>
+								<li> technology_1 </li>
+								<li> technology_2 </li>
+							</ul>
+						</div>
+					</div>
+				</div> -->
+
 
 			</div>
 		</div>
