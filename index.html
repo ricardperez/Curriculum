@@ -10,44 +10,63 @@
 				line-height: 25px;
 			}
 
-			.bold {
+			.Bold {
 				font-weight: bold;
 			}
-
-			.Header {
-    			margin-bottom: 50px;
-    			display: flex;
+			.Normal {
+				font-weight: normal;
 			}
 
-			.ProfileImage img {
-				height: 150px;
-				width: auto;
+			.ProfileDiv {
+    			margin-bottom: 75px;
 			}
 
 			.ProfileImage
 			{
-				float: left;
 				margin-right: 20px;
+				margin-left: 20px;
+				float: left;
+			}
+
+			.ProfileImage img {
+				height: 200px;
 			}
 
 			.ProfileData
 			{
-				height: 150px;
-				padding: 0px 0px;
-				line-height: 170%;
+				margin-left: 250px;
+				height: 13em;
+				width: 30em;
+				border-width: 1px;
+   				border-style: solid;
+   				border-color: white;
 			}
 
-			.ProfileDiv
+			.ProfileDetailsTop
 			{
-				width: 500px;
+				margin-top: 10px;
 			}
 
-			.AcademicDiv
+			.SeparatorLine
 			{
-				padding: 10px;
-				line-height: 170%;
-				width: 680px;
-				margin-bottom: 25px;
+				margin-top: 5px;
+				margin-bottom: 5px;
+				border-width: 1px;
+   				border-bottom-width:1px;
+   				border-bottom-color:gray;
+   				border-bottom-style: solid;
+			}
+
+			.SeparatorLine2
+			{
+				margin-top: 5px;
+				margin-bottom: 5px;
+				margin-left: 50px;
+				margin-right: 50px;
+				border-width: 1px;
+   				border-bottom-width:1px;
+   				border-bottom-color:gray;
+   				border-bottom-style: solid;
 			}
 
 			.JobProjects .JobProjectTitle {
@@ -136,17 +155,17 @@
 				</div>
 				<ul class="nav navbar-nav">
 					<li><a href="http://www.ricardperez.es">Home</a></li>
-					<li><a href="http://www.ricardperez.es/blog" target="_blank">Blog</a></li>
+					<li><a href="http://www.ricardperez.es/blog">Blog</a></li>
 					<li class="active"><a href="http://www.ricardperez.es/curriculum">My CV</a></li>
 				</ul>
 			</div>
 		</nav>
-		<div class="Header">
-			<div class='ProfileDiv'>
-				<div class="ProfileImage">
-					<img src="resources/profile_picture.jpg" title="Ricard Perez" />
-				</div>
-				<div class="ProfileData">
+		<div class='ProfileDiv'>
+			<div class="ProfileImage">
+				<img src="resources/profile_picture.jpg" title="Ricard Perez" />
+			</div>
+			<div class="ProfileData">
+				<div class="ProfileDetailsTop">
 					<label class="Bold">Name:</label>
 					<label class="Normal">Ricard Perez del Campo</label>
 					<br/>
@@ -156,20 +175,19 @@
 					<label class="Bold">Email:</label>
 					<label class="Normal">ricardperez@gmail.com</label>
 					<br/>
-					<label class="Bold">Skype</label>
+					<label class="Bold">Skype:</label>
 					<label class="Normal">ricardperezdelcampo</label>
-					<br/>
-					<label class="Bold">Blog:</label>
-					<a href="http://www.ricardperez.es/blog" target="_blank" class="Normal Link">http://www.ricardperez.es/blog</a>
 				</div>
-			</div>
-			<div class="BodyDiv AcademicDiv">
-				<div class="BodyText">
-					Technical Engineering in Computer Science (2007-2011)
-					<br class="breakline"/>
-					University of Girona
-					<br class="breakline"/>
-					<label class="bold">Final project:</label> Simulation and representation of passive lights [using Grasshopper - Rhino3d]
+				<div class="SeparatorLine"></div>
+				<div>
+					<label class="Bold">Studies:</label>
+					<label class="Normal">Technical Engineering in Computer Science (2007-2011)</label>
+					<br/>
+					<label class="Bold">University:</label>
+					<label class="Normal">Universitat de Girona</label>
+					<br/>
+					<label class="Bold">Final project:</label>
+					<label class="Normal">Simulation and representation of passive lights</label>
 				</div>
 			</div>
 		</div>
@@ -234,6 +252,8 @@
 					</div>
 				</div>
 
+				<div class="SeparatorLine2"></div>
+
 				<div class="WorkingCompany">
 					<img class="toggleContentVisibility foldCompanyDetailsImage" title="CogniFit" src="resources/text_fold.png" />
 					<div class="CompanyTitle">
@@ -280,6 +300,8 @@
 					</div>
 				</div>
 
+				<div class="SeparatorLine2"></div>
+
 				<div class="WorkingCompany">
 					<img class="toggleContentVisibility foldCompanyDetailsImage" title="Porpra Augmented" src="resources/text_fold.png" />
 					<div class="CompanyTitle">
@@ -318,6 +340,8 @@
 					</div>
 				</div>
 
+				<div class="SeparatorLine2"></div>
+
 				<div class="WorkingCompany">
 					<img class="toggleContentVisibility foldCompanyDetailsImage" title="In Store Solutions" src="resources/text_fold.png" />
 					<div class="CompanyTitle">
@@ -343,6 +367,8 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="SeparatorLine2"></div>
 
 				<div class="WorkingCompany">
 					<img class="toggleContentVisibility foldCompanyDetailsImage" title="Amidasoft" src="resources/text_fold.png" />
@@ -370,7 +396,9 @@
 					</div>
 				</div>
 
-				<!-- <div class="WorkingCompany">
+				<!-- 
+				<div class="SeparatorLine2"></div>
+				<div class="WorkingCompany">
 					<img class="toggleContentVisibility foldCompanyDetailsImage" title="company_name" src="resources/text_fold.png" />
 					<div class="CompanyTitle">
 						company_name
